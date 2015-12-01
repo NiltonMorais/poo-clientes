@@ -12,14 +12,13 @@ abstract class ClienteAbstract implements ClienteInterface
     protected $enderecoCobranca;
     protected $tipo;
     protected $grau;
-    private static $cont = 1;
 
-    public function __construct($nome, $cpf, $endereco, $grau = null)
+    public function __construct($id, $nome, $cpf, $endereco, $grau = null)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
-        $this->id = self::$cont++;
+        $this->id = $id;
         $this->grau = $grau;
     }
 
@@ -105,7 +104,7 @@ abstract class ClienteAbstract implements ClienteInterface
         return $this;
     }
 
-    public function getEnderecoCobranca($grau)
+    public function getEnderecoCobranca()
     {
        return $this->enderecoCobranca;
     }

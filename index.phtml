@@ -1,15 +1,18 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 require_once('autoload.php');
+require_once('conn.php');
 
 
-$banco = new \SON\Cliente\Model\BancoClientes();
+
+$clienteModel = new SON\Cliente\Model\ClienteModel($conn);
 
     if(isset($_GET['order'])){
-        $clientes = $banco->getClientes($_GET['order']);
+        $clientes = $clienteModel->fetchAll($_GET['order']);
     }else{
-        $clientes = $banco->getClientes();
+        $clientes = $clienteModel->fetchAll();
     }
+
 ?>
 
 <!DOCTYPE html>
