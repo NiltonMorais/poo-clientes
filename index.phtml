@@ -1,6 +1,9 @@
 <?php
-require_once('BancoClientes.php');
-    $banco = new BancoClientes();
+date_default_timezone_set('America/Sao_Paulo');
+require_once('autoload.php');
+
+
+$banco = new \SON\Cliente\Model\BancoClientes();
 
     if(isset($_GET['order'])){
         $clientes = $banco->getClientes($_GET['order']);

@@ -1,6 +1,9 @@
 <?php
-require_once('ClientePF.php');
-require_once('ClientePJ.php');
+
+namespace SON\Cliente\Model;
+
+use SON\Cliente\Type\ClientePF,
+    SON\Cliente\Type\ClientePJ;
 
 class BancoClientes
 {

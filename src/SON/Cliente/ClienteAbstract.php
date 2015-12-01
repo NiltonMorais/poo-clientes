@@ -1,8 +1,9 @@
 <?php
-require_once('ClienteInterface.php');
-date_default_timezone_set('America/Sao_Paulo');
 
-abstract class Cliente implements ClienteInterface
+namespace SON\Cliente;
+
+
+abstract class ClienteAbstract implements ClienteInterface
 {
     protected $id;
     protected $nome;

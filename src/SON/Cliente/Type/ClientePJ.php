@@ -1,7 +1,10 @@
 <?php
-require_once("Cliente.php");
 
-class ClientePJ extends Cliente
+namespace SON\Cliente\Type;
+
+use SON\Cliente\ClienteAbstract;
+
+class ClientePJ extends ClienteAbstract
 {
     public function __construct($nome, $cpf, $endereco)
     {
