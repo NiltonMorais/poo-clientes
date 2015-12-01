@@ -1,20 +1,25 @@
 <?php
+require_once('ClienteInterface.php');
 date_default_timezone_set('America/Sao_Paulo');
 
-class Cliente
+abstract class Cliente implements ClienteInterface
 {
-    private $id;
-    private $nome;
-    private $cpf;
-    private $endereco;
+    protected $id;
+    protected $nome;
+    protected $cpf;
+    protected $endereco;
+    protected $enderecoCobranca;
+    protected $tipo;
+    protected $grau;
     private static $cont = 1;
 
-    public function __construct($nome, $cpf, $endereco)
+    public function __construct($nome, $cpf, $endereco, $grau = null)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
         $this->id = self::$cont++;
+        $this->grau = $grau;
     }
 
     public function getNome()
@@ -56,4 +61,51 @@ class Cliente
     }
 
 
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+        return $this;
+    }
+
+
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    public function isPessoaFisica(){
+        if($this->tipo == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function isPessoaJuridica(){
+        if($this->tipo == 2){
+            return true;
+        }
+        return false;
+    }
+
+    public function getGrauImportancia()
+    {
+        return $this->grau;
+    }
+
+    public function setGrauImportancia($grau)
+    {
+        $this->grau = $grau;
+        return $this;
+    }
+
+    public function setEnderecoCobranca($endereco)
+    {
+        $this->enderecoCobranca = $endereco;
+        return $this;
+    }
+
+    public function getEnderecoCobranca($grau)
+    {
+       return $this->enderecoCobranca;
+    }
 }

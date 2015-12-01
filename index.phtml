@@ -41,6 +41,7 @@ require_once('BancoClientes.php');
             <td>Nome</td>
             <td>CPF</td>
             <td>Endereço</td>
+            <td>Tipo</td>
             <td>Ações</td>
         </thead>
         <?php foreach($clientes as $cliente): ?>
@@ -49,6 +50,8 @@ require_once('BancoClientes.php');
                 <td><?php echo $cliente->getNome() ; ?></td>
                 <td><?php echo $cliente->getCPF() ; ?></td>
                 <td><?php echo $cliente->getEndereco() ; ?></td>
+                <td>
+                    <?php echo ($cliente->isPessoaFisica()) ? "Pessoa Física" : "Pessoa Juridica"; ?></td>
                 <td><a href="<?php echo 'cliente.phtml?id='.$cliente->getId() ?>" class="btn btn-primary" title="Visualizar"><span class="glyphicon glyphicon-new-window"></span></a></td>
             </tr>
 
